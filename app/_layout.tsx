@@ -5,26 +5,24 @@ import { Stack } from "expo-router"
 import { StatusBar } from "expo-status-bar"
 import * as React from "react"
 import { Platform } from "react-native"
-import { NAV_THEME } from "~/lib/constants"
+import { navTheme } from "~/lib/constants"
 import { useColorScheme } from "~/lib/useColorScheme"
 
-const LIGHT_THEME: Theme = {
+const lightTheme: Theme = {
   ...DefaultTheme,
-  colors: NAV_THEME.light,
+  colors: navTheme.light,
 }
-const DARK_THEME: Theme = {
+const darkTheme: Theme = {
   ...DarkTheme,
-  colors: NAV_THEME.dark,
+  colors: navTheme.dark,
 }
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from "expo-router"
+// Catch any errors thrown by the Layout component.
+export { ErrorBoundary } from "expo-router"
 
 export default function RootLayout() {
   const hasMounted = React.useRef(false)
-  const { colorScheme, isDarkColorScheme } = useColorScheme()
+  const { isDarkColorScheme } = useColorScheme()
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false)
 
   useIsomorphicLayoutEffect(() => {
@@ -45,7 +43,7 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+    <ThemeProvider value={isDarkColorScheme ? darkTheme : lightTheme}>
       <StatusBar style={isDarkColorScheme ? "light" : "dark"} />
       <Stack />
     </ThemeProvider>
