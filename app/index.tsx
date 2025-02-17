@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar"
 import { Text, View } from "react-native"
-import "./global.css"
+import "~/global.css"
 
-export default function App() {
+export default function Index() {
   return (
     <View className="flex-1 items-center justify-center">
       <Text>Toad Reader</Text>
