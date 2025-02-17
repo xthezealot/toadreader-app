@@ -8,9 +8,12 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "update": "bun update && expo install --fix"
+    "update": "bun update && expo install --fix",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "@rn-primitives/slot": "^1.1.0",
+    "@rn-primitives/types": "^1.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "expo": "~52.0.35",
@@ -33,12 +36,17 @@
   "devDependencies": {
     "@babel/core": "^7.26.9",
     "@types/react": "~18.3.18",
+    "prettier": "^3.5.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "typescript": "^5.7.3"
   },
   "prettier": {
     "printWidth": 120,
     "semi": false,
     "singleQuote": false,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

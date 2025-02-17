@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar"
-import { Text, View } from "react-native"
+import { View } from "react-native"
+import { Text } from "~/components/ui/text"
 import "~/global.css"
 
 export default function Index() {
