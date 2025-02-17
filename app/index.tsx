@@ -66,7 +66,7 @@ export default function Index() {
           value={query}
           onChangeText={setQuery}
           placeholder="Search books"
-          className="rounded-lg bg-gray-100 px-3 py-2 text-base leading-5 dark:bg-zinc-800 dark:text-white"
+          className="rounded-lg bg-gray-100 px-3 py-2 text-base leading-5 placeholder:text-zinc-400 dark:bg-zinc-900 dark:text-white dark:placeholder:text-zinc-500"
         />
       </View>
       <FlashList
