@@ -4,7 +4,7 @@ export default function App() {
   return (
     <View>
       <Text>Hey</Text>
-      <Button>Click</Button>
+      <Button bg="$red10">Click</Button>
     </View>
   )
 }
