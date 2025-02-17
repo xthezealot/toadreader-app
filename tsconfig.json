@@ -10,9 +10,9 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
 
-    "baseUrl": ".",
+    // Path aliases
     "paths": {
-      "~/*": ["*"]
+      "@/*": ["./*"]
     }
   }
 }

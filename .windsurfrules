@@ -28,7 +28,6 @@ UI and Styling
 - Use NativeWind v4 for cross-platform UI components and styling.
 - Implement responsive design with a mobile-first approach.
 - Ensure styling consistency between web and native applications.
-- Utilize React Native Reusables compnents for consistent design across platforms.
 
 State Management and Data Fetching
 
