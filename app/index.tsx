@@ -61,13 +61,12 @@ export default function Index() {
 
   return (
     <View className="flex-1 bg-white dark:bg-black">
-      <View className="p-4">
+      <View className="py-2">
         <TextInput
           value={query}
           onChangeText={setQuery}
-          placeholder="Search books..."
-          placeholderTextColor="#9CA3AF"
-          className="rounded-lg bg-gray-100 px-4 py-2 dark:bg-gray-800 dark:text-white"
+          placeholder="Search books"
+          className="rounded-lg bg-gray-100 px-4 py-2 text-base dark:bg-zinc-800 dark:text-white"
         />
       </View>
       <FlashList
