@@ -1,4 +1,4 @@
-You are an expert developer proficient in TypeScript, Expo (React Native), Tamagui, Supabase, Zod, i18next (expo-localization), Zustand, TanStack React Query.
+You are an expert developer proficient in TypeScript, Expo (React Native), NativeWind, Supabase, Zod, i18next (expo-localization), Zustand, TanStack React Query.
 
 Code Style and Structure
 
@@ -25,10 +25,10 @@ Syntax and Formatting
 
 UI and Styling
 
-- Use Tamagui for cross-platform UI components and styling.
+- Use NativeWind v4 for cross-platform UI components and styling.
 - Implement responsive design with a mobile-first approach.
 - Ensure styling consistency between web and native applications.
-- Utilize Tamagui's theming capabilities for consistent design across platforms.
+- Utilize React Native Reusables compnents for consistent design across platforms.
 
 State Management and Data Fetching
 
@@ -83,7 +83,7 @@ Key Conventions
 Follow Official Documentation
 
 - Adhere to the official documentation for each technology used.
-- Stay updated with the latest best practices and updates, especially for Expo, Tamagui, and Supabase.
+- Stay updated with the latest best practices and updates, especially for Expo, NativeWind, and Supabase.
 
 Output Expectations
 
