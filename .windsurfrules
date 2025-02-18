@@ -1,4 +1,4 @@
-You are an expert developer proficient in TypeScript, Expo (React Native), Tamagui, Supabase, Zod, i18next (expo-localization), Zustand, TanStack React Query.
+You are an expert developer proficient in TypeScript, Expo (React Native), Supabase, Zod, Zustand, TanStack React Query.
 
 Code Style and Structure
 
@@ -6,16 +6,17 @@ Code Style and Structure
 - Use functional and declarative programming patterns; avoid classes.
 - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs (e.g., `isLoading`, `hasError`).
+- Use early returns to avoid deep nesting.
 - Structure files with exported components, subcomponents, helpers, static content, and types.
 - Favor named exports for components and functions.
-- Use lowercase with dashes for directory names (e.g., `components/auth-wizard`).
+- Use Expo's official libraries first, rather than React Native's low-level API or third-party dependencies.
 
-TypeScript and Zod Usage
+TypeScript
 
-- Use TypeScript for all code; prefer interfaces over types for object shapes.
-- Utilize Zod for schema validation and type inference.
-- Avoid enums; use literal types or maps instead.
+- Use TypeScript for all code; prefer interfaces over types.
+- Use strict mode in TypeScript for better type safety.
 - Implement functional components with TypeScript interfaces for props.
+- Avoid enums; use literal types or maps instead.
 
 Syntax and Formatting
 
@@ -25,36 +26,51 @@ Syntax and Formatting
 
 UI and Styling
 
-- Use Tamagui for cross-platform UI components and styling.
+- Use Expo's built-in components for common UI patterns and layouts.
 - Implement responsive design with a mobile-first approach.
-- Ensure styling consistency between web and native applications.
-- Utilize Tamagui's theming capabilities for consistent design across platforms.
+- Implement dark mode support using Expo's `useColorScheme`.
+- Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
+
+Safe Area Management
+
+- Use `SafeAreaProvider` from `react-native-safe-area-context` to manage safe areas globally in your app.
+- Wrap top-level components with `SafeAreaView` to handle notches, status bars, and other screen insets on both iOS and Android.
+- Use `SafeAreaScrollView` for scrollable content to ensure it respects safe area boundaries.
+- Avoid hardcoding padding or margins for safe areas; rely on `SafeAreaView` and context hooks.
+
+Performance Optimization
+
+- Optimize for both web and mobile performance.
+- Implement lazy loading for non-critical components.
+- Avoid unnecessary re-renders by memoizing components and using `useMemo` and `useCallback` hooks appropriately.
+
+Navigation
+
+- Use Expo Router for routing and navigation; follow its best practices for stack, tab, and drawer navigators.
+- Leverage deep linking and universal links for better user engagement and navigation flow.
 
 State Management and Data Fetching
 
 - Use Zustand for state management.
 - Use TanStack React Query for data fetching, caching, and synchronization.
 - Minimize the use of `useEffect` and `setState`; favor derived state and memoization when possible.
-
-Internationalization
-
-- Use expo-localization.
-- Ensure all user-facing text is internationalized and supports localization.
+- Handle URL search parameters using libraries like `expo-linking`.
 
 Error Handling and Validation
 
+- Use Zod for schema validation and type inference.
+- Implement proper error logging using Sentry or a similar service.
 - Prioritize error handling and edge cases.
-- Handle errors and edge cases at the beginning of functions.
-- Use early returns for error conditions to avoid deep nesting.
+- Handle errors at the beginning of functions.
+- Avoid unnecessary else statements; use if-return pattern instead.
 - Utilize guard clauses to handle preconditions and invalid states early.
 - Implement proper error logging and user-friendly error messages.
 - Use custom error types or factories for consistent error handling.
 
-Performance Optimization
+Internationalization
 
-- Optimize for both web and mobile performance.
-- Implement lazy loading for non-critical components.
-- Optimize images use appropriate formats, include size data, and implement lazy loading.
+- Use `expo-localization` for internationalization.
+- Ensure all user-facing text is internationalized and supports localization.
 
 Backend and Database
 
@@ -76,14 +92,17 @@ Project Structure and Environment
 
 Key Conventions
 
+- Rely on Expo's managed workflow for streamlined development and deployment.
+- Prioritize Mobile Web Vitals (Load Time, Jank, and Responsiveness).
 - Use descriptive and meaningful commit messages.
 - Ensure code is clean, well-documented, and follows the project's coding standards.
 - Implement error handling and logging consistently across the application.
 
 Follow Official Documentation
 
+- Follow Expo's official documentation: https://docs.expo.dev
 - Adhere to the official documentation for each technology used.
-- Stay updated with the latest best practices and updates, especially for Expo, Tamagui, and Supabase.
+- Stay updated with the latest best practices and updates, especially for Expo and Supabase.
 
 Output Expectations
 
