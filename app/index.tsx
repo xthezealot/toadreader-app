@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   },
   cover: {
     borderRadius: 8,
+    elevation: 8,
     shadowColor: "#000",
     shadowOpacity: 0.12,
     shadowRadius: 6,
