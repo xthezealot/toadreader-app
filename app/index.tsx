@@ -1,3 +1,4 @@
+import { useTheme } from "@react-navigation/native"
 import { FlashList } from "@shopify/flash-list"
 import { Image } from "expo-image"
 import { Link } from "expo-router"
@@ -7,6 +8,7 @@ import useBookStore, { Book } from "../stores/useBookStore"
 
 export default function Books() {
   const { searchQuery, books, setSearchQuery } = useBookStore()
+  const { colors } = useTheme()
 
   // Calculate number of columns based on screen width
   const { width: windowWidth } = useWindowDimensions()
@@ -21,9 +23,13 @@ export default function Books() {
     <Link href={`/book/${item.id}`}>
       <View style={styles.bookItem}>
         <View style={styles.cover}>
-          <Image source={{ uri: item.coverImage }} style={styles.coverImage} contentFit="cover" />
+          <Image
+            source={{ uri: item.coverImage }}
+            style={[styles.coverImage, { backgroundColor: colors.border }]}
+            contentFit="cover"
+          />
         </View>
-        <Text style={styles.title} numberOfLines={2}>
+        <Text style={[styles.title, { color: colors.text }]} numberOfLines={2}>
           {item.title}
         </Text>
       </View>
@@ -31,13 +37,13 @@ export default function Books() {
   )
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <TextInput
-        style={styles.searchInput}
+        style={[styles.searchInput, { backgroundColor: colors.card, color: colors.text }]}
         placeholder="Search"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        placeholderTextColor="#848389"
+        placeholderTextColor={colors.text}
       />
 
       <FlashList
@@ -57,7 +63,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchInput: {
-    backgroundColor: "#eeeef0",
     borderRadius: 10,
     fontSize: 17,
     marginHorizontal: 18,
@@ -77,12 +82,10 @@ const styles = StyleSheet.create({
   },
   coverImage: {
     aspectRatio: 1 / 1.6,
-    backgroundColor: "#ddd",
     borderRadius: 8,
     width: "100%",
   },
   title: {
-    color: "#848389",
     fontSize: 12,
     lineHeight: 12,
     marginTop: 4,
