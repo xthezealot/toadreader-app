@@ -8,12 +8,12 @@ import useBookStore, { Book } from "../stores/useBookStore"
 
 export default function Books() {
   const { searchQuery, books, setSearchQuery } = useBookStore()
-  const { colors } = useTheme()
+  const { colors, margins } = useTheme()
 
   // Calculate number of columns based on screen width
   const { width: windowWidth } = useWindowDimensions()
   const minItemWidth = 120 // Minimum width for each grid item
-  const usableWidth = windowWidth - 9 * 2
+  const usableWidth = windowWidth - margins.screen
   const numColumns = Math.max(1, Math.floor(usableWidth / minItemWidth))
   const itemWidth = usableWidth / numColumns
 
@@ -21,7 +21,7 @@ export default function Books() {
 
   const BookItem = ({ item }: { item: Book }) => (
     <Link href={`/book/${item.id}`}>
-      <View style={styles.bookItem}>
+      <View style={{ padding: margins.screen / 2, paddingBottom: 0 }}>
         <View style={styles.cover}>
           <Image
             source={{ uri: item.coverImage }}
@@ -52,7 +52,7 @@ export default function Books() {
         keyExtractor={(item) => item.id}
         numColumns={numColumns}
         estimatedItemSize={itemWidth * 1.6 + 40}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={{ padding: margins.screen / 2 }}
       />
     </View>
   )
@@ -69,13 +69,6 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     paddingHorizontal: 10,
     paddingVertical: 8,
-  },
-  list: {
-    padding: 9,
-  },
-  bookItem: {
-    padding: 9,
-    paddingBottom: 0,
   },
   cover: {
     width: "100%",
