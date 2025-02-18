@@ -44,6 +44,8 @@ export default function Books() {
         value={searchQuery}
         onChangeText={setSearchQuery}
         placeholderTextColor={colors.text}
+        returnKeyType="search"
+        clearButtonMode="while-editing"
       />
 
       <FlashList
@@ -71,6 +73,10 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   cover: {
+    borderRadius: 8,
+    shadowColor: "#000",
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
     width: "100%",
   },
   coverImage: {
