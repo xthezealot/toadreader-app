@@ -9,12 +9,12 @@ import {
   Platform,
   StyleSheet,
   Text,
-  TextInput,
   useColorScheme,
   useWindowDimensions,
   View,
 } from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
+import TextInput from "../components/TextInput"
 import useBookStore, { Book } from "../stores/useBookStore"
 
 export default function Books() {
@@ -82,22 +82,18 @@ export default function Books() {
         tint={Platform.OS === "android" ? (colorScheme === "dark" ? "dark" : "light") : "default"}
       >
         <TextInput
-          style={[
-            styles.searchInput,
-            {
-              backgroundColor: colors.inputBackground,
-              color: colors.text,
-              marginTop: windowInsets.top + margins.screen / 2,
-              marginBottom: margins.screen / 2,
-              marginHorizontal: margins.screen,
-            },
-          ]}
+          iconName="search"
           placeholder="Search"
           value={searchQuery}
           onChangeText={setSearchQuery}
           placeholderTextColor={colors.inputPlaceholder}
           returnKeyType="search"
           clearButtonMode="while-editing"
+          style={{
+            marginTop: windowInsets.top + margins.screen / 2,
+            marginBottom: margins.screen,
+            marginHorizontal: margins.screen,
+          }}
         />
       </BlurView>
     </View>
@@ -115,12 +111,6 @@ const styles = StyleSheet.create({
     top: 0,
     overflow: "hidden",
     zIndex: 9,
-  },
-  searchInput: {
-    borderRadius: 10,
-    fontSize: 17,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
   },
   bookInner: {
     flex: 1,
