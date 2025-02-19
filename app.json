@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "toadreader",
+    "name": "Toad Reader",
     "slug": "toadreader",
     "scheme": "toadreader",
     "version": "1.0.0",
@@ -19,7 +19,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       }
     },
     "web": {
