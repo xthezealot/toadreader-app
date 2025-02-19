@@ -4,12 +4,22 @@ import { BlurView } from "expo-blur"
 import { Image } from "expo-image"
 import { Link } from "expo-router"
 import React, { useState } from "react"
-import { type LayoutChangeEvent, StyleSheet, Text, TextInput, useWindowDimensions, View } from "react-native"
+import {
+  type LayoutChangeEvent,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  useColorScheme,
+  useWindowDimensions,
+  View,
+} from "react-native"
 import { useSafeAreaInsets } from "react-native-safe-area-context"
 import useBookStore, { Book } from "../stores/useBookStore"
 
 export default function Books() {
   const { searchQuery, books, setSearchQuery } = useBookStore()
+  const colorScheme = useColorScheme()
   const { colors, margins } = useTheme()
   const windowInsets = useSafeAreaInsets()
 
@@ -33,14 +43,14 @@ export default function Books() {
   const BookItem = ({ item }: { item: Book }) => (
     <Link href={`/book/${item.id}`}>
       <View style={{ padding: margins.screen / 2, paddingBottom: 0 }}>
-        <View style={styles.cover}>
+        <View style={styles.bookCover}>
           <Image
             source={{ uri: item.coverImage }}
-            style={[styles.coverImage, { backgroundColor: colors.border }]}
+            style={[styles.bookCoverImage, { backgroundColor: colors.border }]}
             contentFit="cover"
           />
         </View>
-        <Text style={[styles.title, { color: colors.text }]} numberOfLines={2}>
+        <Text style={[styles.bookTitle, { color: colors.inputPlaceholder }]} numberOfLines={1}>
           {item.title}
         </Text>
       </View>
@@ -68,8 +78,8 @@ export default function Books() {
       <BlurView
         onLayout={handleHeaderLayout}
         intensity={100}
-        experimentalBlurMethod="dimezisBlurView"
-        style={styles.header}
+        style={[styles.header, Platform.OS === "android" && { backgroundColor: colors.backgroundSecondary }]}
+        tint={Platform.OS === "android" ? (colorScheme === "dark" ? "dark" : "light") : "default"}
       >
         <TextInput
           style={[
@@ -111,16 +121,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
   },
-  cover: {
+  bookCover: {
     borderRadius: 8,
     width: "100%",
   },
-  coverImage: {
+  bookCoverImage: {
     aspectRatio: 1 / 1.6,
     borderRadius: 8,
     width: "100%",
   },
-  title: {
+  bookTitle: {
     fontSize: 12,
     lineHeight: 12,
     marginTop: 4,
