@@ -1,4 +1,4 @@
-import type { CustomThemeType } from "./theme"
+import type { CustomThemeType } from "./lib/theme"
 
 declare module "@react-navigation/native" {
   export function useTheme(): CustomThemeType

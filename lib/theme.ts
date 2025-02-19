@@ -1,7 +1,10 @@
 import { DarkTheme, DefaultTheme, Theme } from "@react-navigation/native"
 
 export type CustomThemeType = Theme & {
-  colors: Theme["colors"] & {}
+  colors: Theme["colors"] & {
+    inputBackground: string
+    inputPlaceholder: string
+  }
   margins: {
     screen: number
   }
@@ -18,6 +21,9 @@ export const CustomLightTheme: CustomThemeType = {
   ...CommonStyles,
   colors: {
     ...DefaultTheme.colors,
+    background: "#fff",
+    inputBackground: "rgba(232,232,237,0.7)",
+    inputPlaceholder: "#999",
   },
 }
 
@@ -26,5 +32,8 @@ export const CustomDarkTheme: CustomThemeType = {
   ...CommonStyles,
   colors: {
     ...DarkTheme.colors,
+    background: "#000",
+    inputBackground: "rgba(54,54,56,0.7)",
+    inputPlaceholder: "rgba(235,235,245,0.5)",
   },
 }
