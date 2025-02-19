@@ -41,8 +41,8 @@ export default function Books() {
   const filteredBooks = books.filter((book) => book.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
   const BookItem = ({ item }: { item: Book }) => (
-    <Link href={`/book/${item.id}`}>
-      <View style={{ padding: margins.screen / 2, paddingBottom: 0 }}>
+    <Link href={`/book/${item.id}`} style={{ width: itemWidth }}>
+      <View style={styles.bookInner}>
         <View style={styles.bookCover}>
           <Image
             source={{ uri: item.coverImage }}
@@ -86,6 +86,7 @@ export default function Books() {
             styles.searchInput,
             {
               backgroundColor: colors.inputBackground,
+              color: colors.text,
               marginTop: windowInsets.top + margins.screen / 2,
               marginBottom: margins.screen / 2,
               marginHorizontal: margins.screen,
@@ -121,6 +122,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 8,
   },
+  bookInner: {
+    flex: 1,
+    padding: 8,
+    width: "100%",
+  },
   bookCover: {
     borderRadius: 8,
     width: "100%",
@@ -132,9 +138,11 @@ const styles = StyleSheet.create({
   },
   bookTitle: {
     fontSize: 12,
+    fontWeight: 500,
     lineHeight: 12,
-    marginTop: 4,
-    paddingHorizontal: 8,
+    marginTop: 8,
+    paddingHorizontal: 4,
     textAlign: "center",
+    width: "100%",
   },
 })
