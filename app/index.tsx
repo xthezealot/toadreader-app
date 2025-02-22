@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   bookCoverImage: {
     aspectRatio: 1 / 1.6,
-    borderRadius: 8,
+    borderRadius: 10,
     width: "100%",
   },
   bookTitle: {
